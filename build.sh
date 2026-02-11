@@ -103,7 +103,7 @@ echo "TARGET_DEVICE: $TARGET_DEVICE"
 
 if [ $KSU_ENABLE -eq 1 ]; then
     echo "KSU is enabled"
-    curl -LSs "https://raw.githubusercontent.com/kjhhyvyf/SukiSU-Ultra/main/kernel/setup.sh" | bash -s 烤坤@SuSFS-v1.5.7
+    curl -LSs "https://raw.githubusercontent.com/kjhhyvyf/SukiSU-Ultra/main/kernel/setup.sh" | bash -s 烤坤@SuSFS-v2.0.0
 else
     echo "KSU is disabled"
 fi

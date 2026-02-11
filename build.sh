@@ -103,7 +103,7 @@ echo "TARGET_DEVICE: $TARGET_DEVICE"
 
 if [ $KSU_ENABLE -eq 1 ]; then
     echo "KSU is enabled"
-    curl -LSs "https://raw.githubusercontent.com/kjhhyvyf/SukiSU-Ultra/main/kernel/setup.sh" | bash -s 烤坤@SuSFS-v2.0.0
+    curl -LSs "https://raw.githubusercontent.com/kjhhyvyf/SukiSU-Ultra/main/kernel/setup.sh" | bash -s main
 else
     echo "KSU is disabled"
 fi
@@ -131,17 +131,6 @@ make $MAKE_ARGS ${TARGET_DEVICE}_defconfig
 if [ $KSU_ENABLE -eq 1 ]; then
     scripts/config --file out/.config \
     -e KSU \
-    -e KSU_SUSFS \
-    -e KSU_SUSFS_SUS_PATH \
-    -e KSU_SUSFS_SUS_MOUNT \
-    -e KSU_SUSFS_SUS_KSTAT \
-    -e KSU_SUSFS_SPOOF_UNAME \
-    -e KSU_SUSFS_ENABLE_LOG \
-    -e KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS \
-    -e KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG \
-    -e KSU_SUSFS_OPEN_REDIRECT \
-    -e KSU_SUSFS_SUS_MAP \
-    -e THREAD_INFO_IN_TASK \
     -e KPM 
 else
     scripts/config --file out/.config -d KSU
